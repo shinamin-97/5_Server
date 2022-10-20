@@ -56,7 +56,6 @@ uri="http://java.sun.com/jsp/jstl/core"%>
       <jsp:include page="/WEB-INF/views/common/header.jsp"/>
       <section class="content">
         <section class="content-1">
-          ${loginMember}
         </section>
         
         <section class="content-2">
@@ -101,9 +100,9 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 
               <!-- 회원가입, 아이디 비밀번호 찾기 버튼 -->
               <article id="signUp-find-area">
-                <a href="">회원가입</a>
+                <a href="/member/signUp">회원가입</a>
                 <span>|</span>
-                <a href="">ID/PW 찾기</a>
+                <a href="#">ID/PW 찾기</a>
             </article>
           </form>
 
@@ -123,7 +122,8 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 <div class="my-info">
                   
                   <div>
-                  <a href="#" id="nickname">${loginMember.memberNickname}</a>
+                  <a href="/member/myPage/info" id="nickname">${loginMember.memberNickname}</a>
+                  
                   <a href="/member/logout" id="logout-btn">로그아웃</a>
                   </div>
                 

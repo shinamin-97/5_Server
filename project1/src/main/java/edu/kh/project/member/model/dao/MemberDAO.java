@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
+
+
 import edu.kh.project.main.model.dao.MainDAO;
 import edu.kh.project.member.model.vo.Member;
 
@@ -65,7 +67,6 @@ public class MemberDAO {
 				
 			}
 			
-			
 		}finally {
 			
 			close(rs);
@@ -74,6 +75,58 @@ public class MemberDAO {
 		}
 		
 		return loginMember;
+	}
+
+	public int signUp(Connection conn, Member member) throws Exception{
+		
+		int result = -1;
+		
+		try {
+			
+			String sql = prop.getProperty("signUp");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberEmail());
+			pstmt.setString(2, member.getMemberPw());
+			pstmt.setString(3, member.getMemberNickname());
+			pstmt.setString(4, member.getMemberTel());
+			pstmt.setString(5, member.getMemberAddress());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
+	public int updateMmeber(Connection conn, Member member) throws Exception {
+		
+		int result = -1;
+		
+		try {
+			
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberNickname());
+			pstmt.setString(2, member.getMemberTel());
+			pstmt.setString(3, member.getMemberAddress());
+			pstmt.setInt(4, member.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			
+			close(conn);
+		}
+		
+		return result;
 	}
 	
 }
