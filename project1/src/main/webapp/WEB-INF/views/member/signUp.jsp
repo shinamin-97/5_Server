@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="signUp-input-area">
-                    <input type="text" name="memberAddress" id="sample6_Address" placeholder="도로명/지번 주소">
+                    <input type="text" name="memberAddress" id="sample6_address" placeholder="도로명/지번 주소">
                 </div>
 
                 <div class="signUp-input-area">
